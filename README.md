@@ -10,7 +10,9 @@ The output goes to `bin/{Platform}/{Configuration}/` and it will contain two dir
 You can then include these in your project and make use of this library.
 
 ## Caution
-You should use ISO C++ 17 (or higher if available) to build this project. This can be done by going to `Configuration Properties`->`General`->`C++ Language Standard` and set it to (at least) `ISO C++ 17 Standard (/std:c++17)`.
+You should use ISO C++ 17 (or higher if available) to build this project. 
+
+This can be done by going to `Configuration Properties`->`General`->`C++ Language Standard` and set it to (at least) `ISO C++ 17 Standard (/std:c++17)`.
 
 # Usage
 The only 2 header files that should have most interest to you are `TaskManager.h` and `Scheduler.h`.
@@ -57,7 +59,7 @@ std::cout << sum->result() << std::endl;
 This will automatically unwrap the inner task.
 
 ## Caution
-when creating a dependency, make sure the return type matches the arguments of the labda. The following code will not compile because the task `t1` return type is `void` but task `t2` does not expect any arguments.
+When creating a dependency, make sure the return type matches the arguments of the labda. The following code will not compile because the task `t1` return type is `void` but task `t2` does not expect any arguments.
 ```c++
 auto t1 = TM::make_task([] { std::cout << "Task 1" << std::endl;  });
 auto t2 = TM::make_task([] { std::cout << "Task 2" << std::endl;  }, t1); // Compile time error
