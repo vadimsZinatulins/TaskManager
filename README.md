@@ -33,10 +33,35 @@ int main(int argc, char *argv[])
 Yo create an ascynchronous task use `make_task` function and pass in a lambda. This function returns a `std::shared_ptr` that points to the task. If the task returns any value you can retriev it by calling `result()` on the task.
 ```c++
 auto get4 = TM::make_task([] { return 4;  });
+
 std::cout << get4->result() << std::endl;   // This will print 4
 ```
 
-You can get a little bit fancier with task dependencies. This is usefull if a certain task depends on values returned from another task.
+You can get a little bit fancier with task dependencies. This is usefull if a certain task depends on values returned from another task. You can create this dependency relationship by sending tasks to `make_task`
+```c++
+auto get4 = TM::make_task([] { return 4;  });
+auto get6 = TM::make_task([] { return 6;  });
+auto sum = TM::make_task([](int x, int y) { return x + y; }, get4, get6);
+
+std::cout << sum->result() << std::endl;
+```
+
+Other thing that you can do is return a task from a task. 
+```c++
+auto get4 = TM::make_task([] { return 4;  });
+auto get6 = TM::make_task([] { return 6;  });
+auto sum = TM::make_task([](int x, int y) { return TM::make_task([=] { return x + y; }); }, get4, get6);
+
+std::cout << sum->result() << std::endl;
+```
+This will automatically unwrap the inner task.
+
+## Caution
+when creating a dependency, make sure the return type matches the arguments of the labda. The following code will not compile because the task `t1` return type is `void` but task `t2` does not expect any arguments.
+```c++
+auto t1 = TM::make_task([] { std::cout << "Task 1" << std::endl;  });
+auto t2 = TM::make_task([] { std::cout << "Task 2" << std::endl;  }, t1); // Compile time error
+```
 
 # Credits
 Credits goes to [Vladimir Mokhovikov](https://github.com/nongeneric)
