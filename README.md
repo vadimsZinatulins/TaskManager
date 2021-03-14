@@ -9,7 +9,7 @@ The output goes to `bin/{Platform}/{Configuration}/` and it will contain two dir
 - lib\: Contains the __.lib__ file
 
 ## Caution
-You should use ISO C++ 17 (or higher if available) to build this project. Thiis can be done by going to `Configuration Properties` -> `General` -> `C++ Language Standard` and set it to (at least) `ISO C++ 17 Standard (/std:c++17)`.
+You should use ISO C++ 17 (or higher if available) to build this project. Thiis can be done by going to `Configuration Properties`->`General`->`C++ Language Standard` and set it to (at least) `ISO C++ 17 Standard (/std:c++17)`.
 
 # Usage
 The only 2 header files that should have most interest to you are `TaskManager.h` and `Scheduler.h`.
