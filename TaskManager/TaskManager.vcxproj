@@ -72,23 +72,23 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)bin\$(Configuration)\$(Platform)\</OutDir>
-    <IntDir>$(SolutionDir)bin\intermediates\$(Configuration)\$(Platform)\</IntDir>
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\lb</OutDir>
+    <IntDir>$(SolutionDir)bin\intermediates\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)bin\$(Configuration)\$(Platform)\</OutDir>
-    <IntDir>$(SolutionDir)bin\intermediates\$(Configuration)\$(Platform)\</IntDir>
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\lb</OutDir>
+    <IntDir>$(SolutionDir)bin\intermediates\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)bin\$(Configuration)\$(Platform)\</OutDir>
-    <IntDir>$(SolutionDir)bin\intermediates\$(Configuration)\$(Platform)\</IntDir>
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\lb</OutDir>
+    <IntDir>$(SolutionDir)bin\intermediates\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)bin\$(Configuration)\$(Platform)\</OutDir>
-    <IntDir>$(SolutionDir)bin\intermediates\$(Configuration)\$(Platform)\</IntDir>
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\lb</OutDir>
+    <IntDir>$(SolutionDir)bin\intermediates\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -104,9 +104,9 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>DEL /S $(SolutionDir)bin\$(Configuration)\$(Platform)\include
-MKDIR $(SolutionDir)bin\$(Configuration)\$(Platform)\include\$(ProjectName)
-XCOPY /Y /S /Q $(SolutionDir)$(ProjectName)\*.h $(SolutionDir)bin\$(Configuration)\$(Platform)\include\$(ProjectName)</Command>
+      <Command>DEL /S $(SolutionDir)bin\$(Platform)\$(Configuration)\include
+MKDIR $(SolutionDir)bin\$(Platform)\$(Configuration)\include\$(ProjectName)
+XCOPY /Y /S /Q $(SolutionDir)$(ProjectName)\*.h $(SolutionDir)bin\$(Platform)\$(Configuration)\include\$(ProjectName)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -126,9 +126,9 @@ XCOPY /Y /S /Q $(SolutionDir)$(ProjectName)\*.h $(SolutionDir)bin\$(Configuratio
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>DEL /S $(SolutionDir)bin\$(Configuration)\$(Platform)\include
-MKDIR $(SolutionDir)bin\$(Configuration)\$(Platform)\include\$(ProjectName)
-XCOPY /Y /S /Q $(SolutionDir)$(ProjectName)\*.h $(SolutionDir)bin\$(Configuration)\$(Platform)\include\$(ProjectName)</Command>
+      <Command>DEL /S $(SolutionDir)bin\$(Platform)\$(Configuration)\include
+MKDIR $(SolutionDir)bin\$(Platform)\$(Configuration)\include\$(ProjectName)
+XCOPY /Y /S /Q $(SolutionDir)$(ProjectName)\*.h $(SolutionDir)bin\$(Platform)\$(Configuration)\include\$(ProjectName)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -145,9 +145,9 @@ XCOPY /Y /S /Q $(SolutionDir)$(ProjectName)\*.h $(SolutionDir)bin\$(Configuratio
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>DEL /S $(SolutionDir)bin\$(Configuration)\$(Platform)\include
-MKDIR $(SolutionDir)bin\$(Configuration)\$(Platform)\include\$(ProjectName)
-XCOPY /Y /S /Q $(SolutionDir)$(ProjectName)\*.h $(SolutionDir)bin\$(Configuration)\$(Platform)\include\$(ProjectName)</Command>
+      <Command>DEL /S $(SolutionDir)bin\$(Platform)\$(Configuration)\include
+MKDIR $(SolutionDir)bin\$(Platform)\$(Configuration)\include\$(ProjectName)
+XCOPY /Y /S /Q $(SolutionDir)$(ProjectName)\*.h $(SolutionDir)bin\$(Platform)\$(Configuration)\include\$(ProjectName)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -167,9 +167,9 @@ XCOPY /Y /S /Q $(SolutionDir)$(ProjectName)\*.h $(SolutionDir)bin\$(Configuratio
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>DEL /S $(SolutionDir)bin\$(Configuration)\$(Platform)\include
-MKDIR $(SolutionDir)bin\$(Configuration)\$(Platform)\include\$(ProjectName)
-XCOPY /Y /S /Q $(SolutionDir)$(ProjectName)\*.h $(SolutionDir)bin\$(Configuration)\$(Platform)\include\$(ProjectName)</Command>
+      <Command>DEL /S $(SolutionDir)bin\$(Platform)\$(Configuration)\include
+MKDIR $(SolutionDir)bin\$(Platform)\$(Configuration)\include\$(ProjectName)
+XCOPY /Y /S /Q $(SolutionDir)$(ProjectName)\*.h $(SolutionDir)bin\$(Platform)\$(Configuration)\include\$(ProjectName)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
